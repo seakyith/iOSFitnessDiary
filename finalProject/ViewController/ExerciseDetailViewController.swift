@@ -29,7 +29,7 @@ class ExerciseDetailViewController: UIViewController {
         
     }
     
-    
+    // Add exercise function and stored to database
     @IBAction func addExercise(_ sender: UIButton) {
         let exerName = exerciseNameField.text!
         let weight = (Double(weightField.text!))!

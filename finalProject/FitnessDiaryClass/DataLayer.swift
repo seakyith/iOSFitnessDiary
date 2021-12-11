@@ -96,23 +96,6 @@ class DatabaseExercise {
         try! conn.run(createTable)
         try! conn.run(createTable1)
      }
-    //Exercise Table
-//    private func initializeExerciseTable() {
-//        ExerciseTable = Table("Exercise")
-//        exerciseCol1 = Expression<String>("Exercise")
-//        weightCol = Expression<Double>("weight")
-//        repCol = Expression<Int>("Rep")
-//        templateIDCol = Expression<Int64>("template_id")
-//        let createTable = TemplateTable.create(ifNotExists: true){t in
-//            t.column(exerciseCol1, unique: true)
-//            t.column(weightCol)
-//            t.column(repCol)
-//            t.column(templateIDCol)
-//            t.foreignKey(templateIDCol, references: TemplateTable, idCol, delete: .setNull)
-//        }
-//        try! conn.run(createTable)
-//
-//    }
 
  }
 //Creating exercise Repository
@@ -127,6 +110,7 @@ class ExerciseRepository {
         }
         return repository
     }
+    //Create tempplate DB
     func createTemplate(template: TemplateExercise){
         let conn = db.conn
         let table = db.TemplateTable!
@@ -134,6 +118,7 @@ class ExerciseRepository {
         let insertTable = table.insert(db.nameCol <- template.templateName)
         try! conn.run(insertTable)
     }
+    //create exercise DB
     func createExercise(exercise : Exercise){
         let conn = db.conn
         let table = db.ExerciseTable!
@@ -141,6 +126,7 @@ class ExerciseRepository {
         let insertTable = table.insert(db.exerciseCol1 <- exercise.exerciseName, db.weightCol <- exercise.weight, db.repCol <- exercise.rep, db.templateIDCol <- (exercise.templateID))
         try! conn.run(insertTable)
     }
+    //get template from DB
     func getTemplate() -> [TemplateExercise]{
         var list = [TemplateExercise]()
         let table = db.TemplateTable!
@@ -150,6 +136,7 @@ class ExerciseRepository {
         }
         return list
     }
+    //get exercise DB
     func getExercise() -> [Exercise]{
         var list = [Exercise]()
         let table = db.ExerciseTable!
@@ -160,14 +147,17 @@ class ExerciseRepository {
         }
         return list
     }
+    //delete a template
     func deleteTemplate(template: TemplateExercise){
         let table = db.TemplateTable.filter(db.nameCol == template.templateName)
         try! db.conn.run(table.delete())
     }
+    //delete exercise from DB
     func deleteExercise(exercise: Exercise){
         let table = db.ExerciseTable.filter(db.exerciseCol1 == exercise.exerciseName)
         try! db.conn.run(table.delete())
     }
+    //query by exercise
     func queryByExerciseID(exercise: [Exercise]) -> [Exercise] {
         var list = [Exercise]()
         var table = db.ExerciseTable!
@@ -183,6 +173,7 @@ class ExerciseRepository {
         }
         return list
     }
+    //query by template ID
     func queryByTemplateID(template: TemplateExercise) -> [Exercise] {
         var list = [Exercise]()
         var table = db.ExerciseTable!
