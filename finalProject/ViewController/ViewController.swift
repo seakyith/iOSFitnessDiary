@@ -22,7 +22,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         stylebutton(button: logInButton, title: "Log In")
         stylebutton(button: sIgnUpButton, title: "Register New User")
-        // Do any additional setup after loading the view.
     }
     
     // show video

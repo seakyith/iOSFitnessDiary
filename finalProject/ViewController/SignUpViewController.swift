@@ -101,7 +101,6 @@ class SignUpViewController: UIViewController {
         super.viewDidLoad()
         errorMessage.alpha = 0
         self.stylebutton(button: signUP, title: "Register")
-        // Do any additional setup after loading the view.
         // style button and background
         view.addBackground(imageName: "image7.jpg")
         view.addBackground(imageName: "image7.jpg", contentMode: .scaleAspectFit)

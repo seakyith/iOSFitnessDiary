@@ -65,14 +65,13 @@ class ExerciseViewController: UIViewController, UITableViewDataSource, UITableVi
     
     
     
-    
+    // segue back to Exercise View Detail Controller
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             let destination = segue.destination as! ExerciseDetailViewController
             destination.template = template
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         date.text = dateConverter()
         templateName.text = template.templateName
         ExerciseTableView.delegate = self

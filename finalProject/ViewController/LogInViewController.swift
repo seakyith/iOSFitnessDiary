@@ -24,7 +24,7 @@ class LogInViewController: UIViewController {
         button.configuration?.title = title
         button.configuration?.image = UIImage(systemName: "lock.open")
         button.configuration?.imagePadding = 10
-        //logInButton.configuration?.cornerStyle = .capsule
+
         
     }
     
@@ -42,6 +42,7 @@ class LogInViewController: UIViewController {
         view.window?.makeKeyAndVisible()
     }
     // validate password and email fields
+    //return nil if no error
     func validateFields() -> String? {
         if email.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || password.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""
         {
