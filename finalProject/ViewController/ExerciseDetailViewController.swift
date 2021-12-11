@@ -18,6 +18,7 @@ class ExerciseDetailViewController: UIViewController {
     var exerciseData = ExerciseRepository.get()
     var exercise : Exercise!
     
+    //style button
     func stylebutton(button : UIButton, title : String){
         button.configuration = .gray()
         button.configuration?.baseForegroundColor = .systemPink
@@ -38,7 +39,7 @@ class ExerciseDetailViewController: UIViewController {
         
     }
     
-    
+    // segue back to Exercise View Controller
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             let destination = segue.destination as! ExerciseViewController
             destination.template = template

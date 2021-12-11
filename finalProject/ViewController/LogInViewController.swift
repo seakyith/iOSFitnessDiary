@@ -28,20 +28,20 @@ class LogInViewController: UIViewController {
         
     }
     
-    
+    // showing error if user failed to log in
     func showError(_ message: String)
     {
         errorMessage.text = message
         errorMessage.alpha = 1
     }
-    
+    // go to home screen when log in success
     func TransitionToHome(){
         let homeViewController = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboaed.homeViewController) as? HomeViewController
         
         view.window?.rootViewController = homeViewController
         view.window?.makeKeyAndVisible()
     }
-    
+    // validate password and email fields
     func validateFields() -> String? {
         if email.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || password.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""
         {
@@ -82,13 +82,14 @@ class LogInViewController: UIViewController {
     
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         errorMessage.alpha = 0
+        
+        //style background and buttons
         self.stylebutton(button: signInButton, title: "Sign In")
-        //view.addBackground()
         view.addBackground(imageName: "image1.jpg")
-        //view.addBackground(contentMode: .scaleAspectFit)
         view.addBackground(imageName: "image1.jpg", contentMode: .scaleAspectFit)
         email.layer.masksToBounds = true
         email.layer.borderColor = UIColor.systemPink.cgColor

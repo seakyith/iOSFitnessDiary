@@ -16,15 +16,6 @@ class ViewController: UIViewController {
     var videoPlayer:AVPlayer?
     var videoPlayerLayer:AVPlayerLayer?
     
-//    func configureButton() {
-//        logInButton.configuration = .gray()
-//        logInButton.configuration?.baseForegroundColor = .systemPink
-//        logInButton.configuration?.title = "Log In"
-//        logInButton.configuration?.image = UIImage(systemName: "arrow.right.to.line")
-//        logInButton.configuration?.imagePadding = 10
-//        logInButton.configuration?.cornerStyle = .capsule
-//    }
-    
     
     
     override func viewDidLoad() {
@@ -39,7 +30,7 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         setUpVideo()
     }
-    
+    // Set up video for background
     func setUpVideo(){
         
         let path = Bundle.main.path(forResource: "video", ofType: "mp4")

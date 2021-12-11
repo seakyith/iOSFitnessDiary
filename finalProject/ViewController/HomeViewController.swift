@@ -18,7 +18,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet var addButton: UIButton!
     @IBOutlet var imageView: UIImageView!
     
-    
+    // style button
     func stylebutton(button : UIButton, title : String){
         button.configuration = .gray()
         button.configuration?.baseForegroundColor = .systemPink
@@ -41,6 +41,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     @IBOutlet var templateName: UITextField!
     
+    // add button action
     @IBAction func add(_ sender: UIButton) {
         if let templateName1 = templateName.text{
             let newTemplate = TemplateExercise(name: templateName1)
@@ -54,6 +55,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return 100.0
     }
     
+    // segue to the next screen
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let row = TemplateTableView.indexPathForSelectedRow?.row{
             let destination = segue.destination as! ExerciseViewController
@@ -63,6 +65,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
     }
     
+    
+    // table view for creating main exercise template
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return template.getTemplate().count
     }
@@ -77,9 +81,11 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //tableView.deselectRow(at: indexPath, animated: true)
         performSegue(withIdentifier: "showTemplateDetail", sender: self)
     }
+    
+    
+    
     //Deleting
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return .delete

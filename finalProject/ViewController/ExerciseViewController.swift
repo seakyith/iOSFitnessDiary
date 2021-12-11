@@ -25,7 +25,7 @@ class ExerciseViewController: UIViewController, UITableViewDataSource, UITableVi
     var exercise = templateDB.getExercise()
 
     
-    
+    // table view function/properties
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return templateDB.queryByTemplateID(template: template).count
     }

@@ -83,13 +83,13 @@ class SignUpViewController: UIViewController {
         }
         
     }
-        
+     // show error if sign up mails
     func showError(_ message: String)
     {
         errorMessage.text = message
         errorMessage.alpha = 1
     }
-    
+    // if sign up successful,,, go to home screen
     func TransitionToHome(){
         let homeViewController = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboaed.homeViewController) as? HomeViewController
         
@@ -102,9 +102,8 @@ class SignUpViewController: UIViewController {
         errorMessage.alpha = 0
         self.stylebutton(button: signUP, title: "Register")
         // Do any additional setup after loading the view.
-        
+        // style button and background
         view.addBackground(imageName: "image7.jpg")
-        //view.addBackground(contentMode: .scaleAspectFit)
         view.addBackground(imageName: "image7.jpg", contentMode: .scaleAspectFit)
         
     }
